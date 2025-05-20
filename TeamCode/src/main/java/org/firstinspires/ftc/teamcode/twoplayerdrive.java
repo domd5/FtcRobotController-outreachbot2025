@@ -131,6 +131,7 @@ public class twoplayerdrive extends LinearOpMode {
             } else /*if(arm.isBusy() == false)*/ {
                 dcArm.setPower(0);
             }
+
             if (gamepad2.square) {
                 //open
                 clawLeft.setPosition(0.6);
@@ -149,8 +150,8 @@ public class twoplayerdrive extends LinearOpMode {
                 clawRight.setPosition(.7);
             } else if (gamepad1.cross) {
                 //open
-                clawLeft.setPosition(0.6);
-                clawRight.setPosition(0.7);
+                clawLeft.setPosition(0.8);
+                clawRight.setPosition(0.5);
             } else {
                 //close
                 clawLeft.setPosition(0.7);
@@ -159,20 +160,23 @@ public class twoplayerdrive extends LinearOpMode {
 
             if (gamepad2.left_trigger > 0.05) {
                 //up above field (actually closer to flat)
-                rotate.setPosition(0.4);
+                rotate.setPosition(0.6);
             } else if (gamepad2.left_bumper) {
 
                 //down below field
-                rotate.setPosition(.9);
+                rotate.setPosition(0.4);
             } /*else if (arm.getCurrentPos() < 3000) {
 
                 rotate.setPosition(0.8);
             } else if (arm.getCurrentPos() >3000){
                 rotate.setPosition(0.4);
-            } else{
-                //flat on field (actually closer to above)
+            } */ else if (gamepad2.dpad_up){
+               //between max and ground
                 rotate.setPosition(0.8);
-            }*/
+            } else{
+                //top max
+                rotate.setPosition(1);
+            }
             if (gamepad2.triangle) {
                 drone.setPosition(0.5);
             } else {
