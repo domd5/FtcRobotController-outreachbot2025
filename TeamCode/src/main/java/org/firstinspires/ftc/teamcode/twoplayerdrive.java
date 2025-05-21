@@ -192,8 +192,8 @@ public class twoplayerdrive extends LinearOpMode {
 
             // POV Mode uses left joystick to go forward & strafe, and right joystick to rotate.
             double axial   = -gamepad1.left_stick_y;  // Note: pushing stick forward gives negative value
-            double lateral =  gamepad1.left_stick_x;
-            double yaw     =  gamepad1.right_stick_x;
+            double lateral = gamepad1.left_stick_x;
+            double yaw     = gamepad1.right_stick_x;
 
             // Combine the joystick requests for each axis-motion to determine each wheel's power.
             // Set up a variable for each drive wheel to save the power level for telemetry.
@@ -201,14 +201,28 @@ public class twoplayerdrive extends LinearOpMode {
             double rightFrontPower = axial - lateral - yaw;
             double leftBackPower   = axial - lateral + yaw;
             double rightBackPower  = axial + lateral - yaw;
-
+            /*
+            if(gamepad1.dpad_down) {
+                axial = -gamepad1.left_stick_y * 0.7;
+                lateral = gamepad1.left_stick_x * 0.7;
+                yaw = gamepad1.right_stick_x * 0.7;
+            } else if (gamepad1.dpad_up) {
+                axial = -gamepad1.left_stick_y;
+                lateral = gamepad1.left_stick_x;
+                yaw = gamepad1.right_stick_x;
+            } else {
+                axial = -gamepad1.left_stick_y * 0.3;
+                lateral = gamepad1.left_stick_x * 0.3;
+                yaw = gamepad1.right_stick_x * 0.3;
+            }
+            */
             // Normalize the values so no wheel power exceeds 100%
             // This ensures that the robot maintains the desired motion.
             max = Math.max(Math.abs(leftFrontPower), Math.abs(rightFrontPower));
             max = Math.max(max, Math.abs(leftBackPower));
             max = Math.max(max, Math.abs(rightBackPower));
 
-            if (max > 0.6) {
+            if (max > 1) {
                 leftFrontPower  /= max;
                 rightFrontPower /= max;
                 leftBackPower   /= max;
