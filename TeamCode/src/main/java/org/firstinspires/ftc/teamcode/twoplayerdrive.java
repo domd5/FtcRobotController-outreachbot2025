@@ -134,20 +134,20 @@ public class twoplayerdrive extends LinearOpMode {
 
             if (gamepad2.square) {
                 //open
-                clawLeft.setPosition(0.6);
+                clawLeft.setPosition(0.8);
             } else if (gamepad2.circle) {
                 //open
-                clawRight.setPosition(.7);
+                clawRight.setPosition(.5);
             } else if (gamepad2.cross) {
                 //open
-                clawLeft.setPosition(0.6);
-                clawRight.setPosition(0.7);
+                clawLeft.setPosition(0.8);
+                clawRight.setPosition(0.5);
             } else if (gamepad1.square) {
                 //open
-                clawLeft.setPosition(0.6);
+                clawLeft.setPosition(0.8);
             } else if (gamepad1.circle) {
                 //open
-                clawRight.setPosition(.7);
+                clawRight.setPosition(.5);
             } else if (gamepad1.cross) {
                 //open
                 clawLeft.setPosition(0.8);
