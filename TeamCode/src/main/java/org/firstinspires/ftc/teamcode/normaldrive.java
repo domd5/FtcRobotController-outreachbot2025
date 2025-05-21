@@ -286,8 +286,13 @@ public class normaldrive extends LinearOpMode {
             */
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
-            //telemetry.addData("Front left/Right", "%4.2f, %4.2f", leftFrontPower, rightFrontPower);
-            //telemetry.addData("Back  left/Right", "%4.2f, %4.2f", leftBackPower, rightBackPower);
+            telemetry.addData("front left power", leftFrontDrive.getPower());
+            telemetry.addData("front right power", rightFrontDrive.getPower());
+            telemetry.addData("back left power", leftBackDrive.getPower());
+            telemetry.addData("back right power", rightBackDrive.getPower());
+            telemetry.addData("left claw pos", clawLeft.getPosition());
+            telemetry.addData("right claw pos", clawRight.getPosition());
+            telemetry.addData("drone pos", drone.getPosition());
             telemetry.update();
         }
     }}
